@@ -22,7 +22,6 @@ local textEditor  = "vim"
 -------------------
 
  hl.on("hyprland.start", function () 
-   -- hl.exec_cmd("caelestia-shell -d")
    hl.exec_cmd("waybar --config ~/.config/waybar/config.jsonc --style ~/.config/waybar/style.css")
    hl.exec_cmd("hyprpaper")
  end)
@@ -33,6 +32,8 @@ local textEditor  = "vim"
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+cursor_inactive_timeout = 7
 
 -----------------------
 ----- PERMISSIONS -----
@@ -52,11 +53,11 @@ hl.config({
         gaps_in  = 5,
         gaps_out = 20,
 
-        border_size = 2,
+        border_size = 3,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = {"rgba(fbfbfbee)", "rgba(424446ee)"}, angle = 45 },
+            inactive_border = "rgba(424446ee)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -215,6 +216,8 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys

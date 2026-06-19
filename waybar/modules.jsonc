@@ -1,14 +1,14 @@
 {
     "hyprland/workspaces": {
         "format": "{icon}",
-        "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'e+1'}\")",
-        "on-scroll-up":   "hyprctl dispatch \"hl.dsp.focus({workspace = 'e-1'}\")",
-        "persistent-workspaces": { "*": 5 },
+        "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'e+1'})\"",
+        "on-scroll-up":   "hyprctl dispatch \"hl.dsp.focus({workspace = 'e-1'})\"",
+        "persistent-workspaces": { "*": 4 },
         "cursor": true,
         "format-icons": {
-            "active": "󰮯",
-            "persistent": "",
-            "empty": ""
+            "active": "",
+            "default": "",
+            "empty": ""
          }
     },
 
@@ -26,12 +26,12 @@
     },
 
     "hyprland/window" : {
-        "max-length": 45
+        "max-length": 10
     },
 
     "cpu": {
         "interval": 30,
-        "format":" {usage}%",
+        "format":"  {usage}%",
         "cursor": true,
         "states": {
             "warning": 80,
@@ -47,13 +47,13 @@
 
     "load": {
         "interval": 30,
-        "format": " {load1}%",
+        "format": "  {load1}%",
         "cursor": true
     },
 
     "memory": {
         "interval": 10,
-        "format": "  {used:0.1f}G/{total:0.1f}G",
+        "format": " ",
         "states": {
             "warning": 80,
             "critical": 90
@@ -85,7 +85,7 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "!",
             "phone": "",
             "portable": "",
             "car": "",
@@ -141,24 +141,11 @@
         "on-click-right": "hyprctl eval \"hl.exec_cmd('blueman-manager')\""
     },
 
-    "battery": {
-        "interval": 20,
-        "full-at": 100,
-        "tooltip": true,
-        "format-full": "",
-        "format": "{icon} {capacity}%",
-        "format-time": "{H}:{M:02}",
-        "format-charging": " {capacity}% ({time})",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂂", "󰁹"],
-        "states": {
-            "warning": 30,
-            "critical": 15
-        }
-    },
-
     "clock": {
-        "timezone": "America/Argentina/Buenos_Aires",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"format": "{:%I:%M:%S %p}",
+	"interval": 1,
+        "timezone": "America/Los_Angeles",
+        "tooltip-format": "<tt>{calendar}</tt>",
         "format-alt": "{:%H:%M %d %B %Y}",
         "on-click-right": "hyprctl eval \"hl.exec_cmd('alacritty --class=peaclock -e peaclock')\"",
         "calendar": {
@@ -229,23 +216,11 @@
   		}
     },
 
-    "custom/arrow-left":  { 
-        "format": "", 
-        "tooltip": false, 
-        "cursor": true
-    },
-    
-    "custom/arrow-right": { 
-        "format": "",  
-        "tooltip": false,
-        "cursor": true
-    },
-
     "group/group-volume": {
         "orientation": "horizontal",
         "drawer": {
             "transition-duration": 600,
-            "transition-left-to-right": true,
+            "transition-left-to-right": false,
             "reveal-delay": 450
         },
         "modules" : [
