@@ -6,55 +6,62 @@
     "margin": "5 0",
 
     "group/left" : {
-        "orientation": "horizontal",
-        "modules" : [
-            "clock", 
-//            "niri/workspaces",
-            "mpris"
-        ]
+      "orientation": "horizontal",
+      "modules":[
+	"clock",
+        "mpris"
+      ]
     },
 
     "group/left-hidden" : {
-        "orientation": "horizontal",
-	"modules" : [
-            "battery", "cpu", "load"
-        ]
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 500,
+	"transition-left-to-right": false,
+	"click-to-reveal": true
+      },
+      "modules": [
+        "custom/arrow-right", "battery", "cpu", "load"
+      ]
     },
 
-    "group/left-hidden-top" : {
-        "orientation": "horizontal",
-        "modules" : [ "power-profiles-daemon", "group/left-hidden" ]
+    "group/left-hidden-wrapper" : {
+      "orientation": "horizontal",
+      "modules": [
+	"power-profiles-daemon",
+        "group/left-hidden"
+      ]
     },
 
     "group/right" : {
-	    "orientation": "horizontal",
-	    "modules" : [
-		    "group/group-volume", "network"
-	    ]
-    },
-
-    "group/right-old" : {
-        "orientation": "horizontal",
-        "modules" : [
-            "bluetooth", "group/group-volume", "group/group-backlight", "network", "tray"
-        ]
+      "orientation": "horizontal",
+      "modules" : [
+        "group/group-volume", "network"
+      ]
     },
 
     "group/right-hidden" : {
-        "orientation": "horizontal",
-        "modules" : [
-            "custom/arrow-left", "memory", "temperature"
-        ]
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 500,
+	"transition-left-to-right": true,
+	"click-to-reveal": true
+      },
+      "modules": [
+        "custom/arrow-left", "memory", "temperature"
+      ]
+    }
+    ,
+    "group/right-hidden-wrapper" : {
+      "orientation": "horizontal",
+      "modules": [
+        "group/right-hidden"
+      ]
     },
 
-    "group/right-hidden-top" : {
-        "orientation": "horizontal",
-        "modules" : [ "group/right-hidden" ]
-    },
-
-    "modules-left"   : ["group/left-hidden-top", "group/left"],
-    "modules-center" : ["hyprland/workspaces"],
-    "modules-right"  : ["group/right", "group/right-hidden-top"],
+    "modules-left"    : ["group/left-hidden-wrapper", "group/left"],
+    "modules-center"  : ["hyprland/workspaces"],
+    "modules-right"   : ["group/right", "group/right-hidden-wrapper"],
 
     "include": [ "~/.config/waybar/modules.jsonc" ]
 }

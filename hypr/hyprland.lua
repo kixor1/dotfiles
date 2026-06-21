@@ -53,7 +53,7 @@ hl.config({
         gaps_in  = 5,
         gaps_out = 20,
 
-        border_size = 3,
+        border_size = 0,
 
         col = {
             active_border   = { colors = {"rgba(fbfbfbee)", "rgba(424446ee)"}, angle = 45 },
@@ -75,7 +75,7 @@ hl.config({
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        inactive_opacity = 0.4,
 
         shadow = {
             enabled      = true,
@@ -217,7 +217,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("discord"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys
