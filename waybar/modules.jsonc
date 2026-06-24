@@ -81,7 +81,7 @@
     "pulseaudio/slider": {
         "min": 0,
         "max": 100,
-        "cursor": true,
+        "cursor": false,
         "on-click-right": "hyprctl eval \"hl.exec_cmd('pavucontrol -t 4')\""
     },
 
@@ -101,11 +101,22 @@
         "menu": "on-click-right",
         "menu-file": "~/.config/dotfiles/waybar/context/network.xml",
         "menu-actions": {
-  			"action-1": "nmcli radio wifi off",
-  			"action-2": "nmcli radio wifi on",
+            "action-1": "nmcli radio wifi off",
+            "action-2": "nmcli radio wifi on",
             "action-3": "hyprctl eval \"hl.exec_cmd('alacritty -e nmtui')\"",
             "action-4": "hyprctl eval \"hl.exec_cmd('nm-connection-editor')\""
-  		}
+  	}
+    },
+
+    "custom/power" : {
+        "format": "󰐥",
+	"menu": "on-click",
+	"menu-file": "~/.config/dotfiles/waybar/context/power.xml",
+	"menu-actions": {
+            "action-1": "shutdown",
+	    "action-2": "reboot",
+	    "action-3": "hyprlock"
+	}
     },
 
     "bluetooth": {
@@ -144,9 +155,9 @@
     },
 
     "mpris": {
-        "format": "{artist} - {title}",
-        "tooltip-format" : "{album}",
-        "format-paused": " {artist} - {title}",
+        "format": "{title} (from \"{album}\")",
+        "tooltip-format" : "{title} by {artist}",
+        "format-paused": " {title} (from \"{album}\")",
         "on-click": "playerctl play-pause",
         "on-scroll-up": "playerctl previous",
         "on-scroll-down": "playerctl next",
@@ -161,40 +172,6 @@
             "balanced": "",
             "power-saver": ""
         }
-    },
-
-    "custom/start": {
-        "format": "",
-        "on-click": "~/.config/rofi/bin/drun &"
-    },
-
-    "custom/ctlcenter" : {
-        "tooltip" : false,
-        "format" : "",
-        "on-click" : "swaync-client -t",
-        "menu": "on-click-right",
-        "menu-file": "~/.config/waybar/context/ctlcenter.xml",
-        "menu-actions": {
-            "action-1-1": "hyprctl eval \"hl.exec_cmd('alacritty -e htop')\"",
-            "action-1-2": "hyprctl eval \"hl.exec_cmd('alacritty -e nvtop')\"",
-            "action-1-3": "hyprctl eval \"hl.exec_cmd('alacritty -e pkexec powertop')\"",
-            "action-1-4": "hyprctl eval \"hl.exec_cmd('missioncenter' )\"",
-
-            "action-2-1": "hyprctl eval \"hl.exec_cmd('nwg-look')\"",
-            "action-2-2": "hyprctl eval \"hl.exec_cmd('qt6ct')\"",
-            "action-2-3": "hyprctl eval \"hl.exec_cmd('kvantummanager')\"",
-
-
-            "action-3-1": "~/.local/bin/refreshrate 60",
-  			"action-3-2": "~/.local/bin/refreshrate 90",
-  			"action-3-3": "~/.local/bin/refreshrate 144",
-
-            "action-4-1": "~/.local/bin/caffeine shutdown",
-            "action-4-2": "~/.local/bin/caffeine handle-lid-switch",
-
-            "action-5": "~/.local/bin/powersafe",
-            "action-6": "hyprctl reload"
-  		}
     },
 
     "group/group-volume": {

@@ -33,7 +33,7 @@ local textEditor  = "vim"
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("WLR_NO_HARDWARE_CURSORS", "1")
-cursor_inactive_timeout = 7
+cursor_inactive_timeout = -1
 
 -----------------------
 ----- PERMISSIONS -----
@@ -50,8 +50,8 @@ cursor_inactive_timeout = 7
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 20,
+        gaps_in  = 3,
+	gaps_out = {top = 2, left = 5, bottom = 5, right = 5},
 
         border_size = 0,
 
@@ -86,7 +86,7 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
+            size      = 4,
             passes    = 1,
             vibrancy  = 0.1696,
         },

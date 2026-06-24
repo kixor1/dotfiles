@@ -61,7 +61,7 @@
 
     "modules-left"    : ["group/left-hidden-wrapper", "group/left"],
     "modules-center"  : ["hyprland/workspaces"],
-    "modules-right"   : ["group/right", "group/right-hidden-wrapper"],
+    "modules-right"   : ["group/right", "group/right-hidden-wrapper", "custom/power"],
 
     "include": [ "~/.config/waybar/modules.jsonc" ]
 }
