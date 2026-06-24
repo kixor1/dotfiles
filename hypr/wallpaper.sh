@@ -1,5 +1,5 @@
-wallpapersDir=~/.config/dotfiles/hypr/images/wallpapers
-currentDir=~/.config/dotfiles/hypr/images/current
+wallpapersDir=~/.config/dotfiles/images/wallpapers
+currentDir=~/.config/dotfiles/images/current
 currentWallpaper="${currentDir}/wallpaper"
 options="$(ls -1 $wallpapersDir)"
 changed=0
@@ -22,7 +22,7 @@ while true; do
 	read -p "" choice	
 	if [[ $choice == "y" ]] || [[ $choice == "Y" ]]; then
 		rm -f $currentWallpaper
-		cp -f "${wallpapersDir}/${wallpaper}" "${currentDir}/wallpaper"
+		ln "${wallpapersDir}/${wallpaper}" "${currentDir}/wallpaper"
 		changed=1
 		break;
 	elif [[ $choice == "q" ]] || [[ $choice == "Q" ]]; then
